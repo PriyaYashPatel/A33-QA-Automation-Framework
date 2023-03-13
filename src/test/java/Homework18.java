@@ -9,6 +9,7 @@ public class Homework18 extends BaseTest {
     public static void playSongTest() throws InterruptedException {
         login("testguest@testpro.io","te$t$tudent");
         playSongBtn();
+        playSong();
 
         Assert.assertTrue(isDisplayedPlayingSong());
     }
@@ -20,6 +21,8 @@ public class Homework18 extends BaseTest {
         buttonPlaySongNxt.click();
         buttonPlaySong.click();
     }
+
+
 
     public static boolean isDisplayedPlayingSong() {
         WebElement songIsPlaying = driver.findElement(By.cssSelector("[data-testid='sound-bar-play']"));
