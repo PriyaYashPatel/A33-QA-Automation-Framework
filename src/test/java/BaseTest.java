@@ -3,6 +3,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
@@ -17,6 +18,7 @@ import static org.openqa.selenium.chrome.ChromeDriver.*;
 public class BaseTest {
 
     public static WebDriver driver = null;
+    public static String url = "https://bbb.testpro.io/";
 
     @BeforeSuite
     static void setupClass() {
@@ -25,8 +27,11 @@ public class BaseTest {
 
     @BeforeMethod
     public static void launchBrowser() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-notifications","--remote-allow-origins=*","--incognito","--start-maximized");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.get(url);
     }
 
     @AfterMethod
