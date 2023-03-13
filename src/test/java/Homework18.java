@@ -9,7 +9,6 @@ public class Homework18 extends BaseTest {
     public static void playSongTest() throws InterruptedException {
         login("testguest@testpro.io","te$t$tudent");
         playSongBtn();
-        playSong();
 
         Assert.assertTrue(isDisplayedPlayingSong());
     }
